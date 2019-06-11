@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import {CustomersList} from './CustomersList';
+import {CustomerCreateUpdate} from './CustomerCreateUpdate';
+
+
 
 export default class App extends Component {
   render() {
@@ -8,8 +12,9 @@ export default class App extends Component {
       <section className="section">
         <section className="container">
           <section className="content">
-
-
+            <Route path="/" exact component={CustomersList} />
+            <Route path="/customer/:pk" component={CustomerCreateUpdate}/>
+            <Route path="/customer/" component={CustomerCreateUpdate}/>
           </section>
         </section>
       </section>
