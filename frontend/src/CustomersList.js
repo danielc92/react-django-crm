@@ -75,9 +75,10 @@ export default class CustomersList extends Component {
                                         <td>{customer.email}</td>
                                         <td>{customer.address}</td>
                                         <td>{customer.description}</td>
-                                        <td><p className="buttons">
-                                            <button className="button is-small" onClick={(e)=> this.handleDelete(e, customer.pk)}>Delete</button>
-                                            <a href={'/customer/' + String(customer.pk)} className="button is-small">Update</a>
+                                        <td>
+                                            <p className="buttons">
+                                                <button className="button is-small is-danger" onClick={(e)=> this.handleDelete(e, customer.pk)}>Delete</button>
+                                                <a href={'/customer/' + String(customer.pk)} className="button is-small is-link">Update</a>
                                             </p>
                                         </td>
                                     </tr>

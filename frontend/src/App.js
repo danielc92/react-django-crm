@@ -4,7 +4,6 @@ import CustomersList from './CustomersList';
 import CustomerCreateUpdate from './CustomerCreateUpdate';
 
 
-
 export default class App extends Component {
   render() {
     return (
@@ -13,8 +12,8 @@ export default class App extends Component {
         <section className="container">
           <section className="content">
             <Route path="/" exact component={CustomersList} />
-            <Route path="/customer/:pk" component={CustomerCreateUpdate}/>
-            <Route path="/customer/" component={CustomerCreateUpdate}/>
+            <Route path="/customer/:pk" exact component={CustomerCreateUpdate}/>
+            <Route path="/customer/" exact component={CustomerCreateUpdate}/>
           </section>
         </section>
       </section>
