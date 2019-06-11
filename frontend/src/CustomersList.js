@@ -10,8 +10,8 @@ export default class CustomersList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            customers = [],
-            nextPageURL = ''
+            customers : [],
+            nextPageURL : ''
         }
         this.nextPage = this.nextPage.bind(this);
         this.handleDelete = this.handleDelete.bind(this);

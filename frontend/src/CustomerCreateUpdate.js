@@ -7,7 +7,7 @@ const customersService = new CustomersService();
 
 class CustomerCreateUpdate extends Component {
 
-    constructor() {
+    constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
     }

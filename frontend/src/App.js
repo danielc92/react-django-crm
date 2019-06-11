@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
-import {CustomersList} from './CustomersList';
-import {CustomerCreateUpdate} from './CustomerCreateUpdate';
+import CustomersList from './CustomersList';
+import CustomerCreateUpdate from './CustomerCreateUpdate';
 
 
 
