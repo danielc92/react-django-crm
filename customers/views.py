@@ -1,5 +1,5 @@
 from rest_framework.response import Response
-from rest_fraemwork.decorators import api_view
+from rest_framework.decorators import api_view
 from rest_framework import status
 
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -16,8 +16,8 @@ def customers_list(request):
     if request.method == 'GET':
         
         data = []
-        nextPage = 1
-        previousPage = 1
+        nPage = 1
+        pPage = 1
         customers = Customer.objects.all()
         page = request.GET.get('page',1)
         paginator = Paginator(customers, 10)
@@ -74,7 +74,7 @@ def customers_detail(request, pk):
         serializer = CustomerSerializer(customer, 
                                         data=request.data, 
                                         context = {'request': request})
-                                        
+
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
