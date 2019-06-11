@@ -60,29 +60,43 @@ class CustomerCreateUpdate extends Component {
 
     render() {
         return (
+            <React.Fragment>
+        <h3>Customer Form</h3>
           <form onSubmit={this.handleSubmit}>
-            <div className="form-group">
-                <label>First Name:</label>
+              <div className="field">
+                <label className="label">First Name:</label>
                 <input className="form-control" type="text" ref='firstName' />
+              </div>
 
-                <label>Last Name:</label>
-                <input className="form-control" type="text" ref='lastName'/>
+              <div className="field">
+                <label className="label">Last Name:</label>
+                <input className="form-control" type="text" ref='lastName'/>  
+              </div>
 
-                <label>Phone:</label>
+              <div className="field">
+                <label className="label">Phone:</label>
                 <input className="form-control" type="text" ref='phone' />
+              </div>
 
-                <label>Email:</label>
-                <input className="form-control" type="text" ref='email' />
+              <div className="field">
+                <label className="label">Email:</label>
+                <input className="form-control" type="text" ref='email' /> 
+              </div>
 
-                <label>Address:</label>
+              <div className="field">
+                <label className="label">Address:</label>
                 <input className="form-control" type="text" ref='address' />
+              </div>
 
-                <label>Description:</label>
-                <textarea className="form-control" ref='description' ></textarea>
+              <div className="field">
+                <label className="label">Description:</label>
+                <textarea className="textarea" ref='description'></textarea>
+              </div>
+              
+              <input className="btn btn-primary" type="submit" value="Submit" />
 
-                <input className="btn btn-primary" type="submit" value="Submit" />
-            </div>
           </form>
+          </React.Fragment>
         );
   }
 }

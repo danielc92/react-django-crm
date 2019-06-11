@@ -26,7 +26,7 @@ export default class CustomersList extends Component {
     }
 
     // Can be called to delete a customer and adjust the state accordingly
-    handleDelete() {
+    handleDelete(e, pk) {
         var self = this;
         customersService.deleteCustomer({pk : pk}).then(()=>{
             var newArray = self.state.customers.filter(function(obj) {
@@ -49,40 +49,43 @@ export default class CustomersList extends Component {
     render() {
         return (
             <React.Fragment>
-                <section className="section">
-                    <table className="table">
+                <h3>Customer List</h3>
+                    <table className="table is-striped">
                         <thead>
                             <tr>
-                            <th>#</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Phone</th>
-                            <th>Email</th>
-                            <th>Address</th>
-                            <th>Description</th>
-                            <th>Actions</th>
+                                <th>#</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Phone</th>
+                                <th>Email</th>
+                                <th>Address</th>
+                                <th>Description</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             {this.state.customers.map(customer=>{
                       
-                                    <tr key={customer.pk}
+                                   return <tr key={customer.pk}
                                     >
+                                        <td>{customer.pk}</td>
                                         <td>{customer.first_name}</td>
                                         <td>{customer.last_name}</td>
                                         <td>{customer.phone}</td>
                                         <td>{customer.email}</td>
                                         <td>{customer.address}</td>
                                         <td>{customer.description}</td>
-                                        <td><button onClick={(e)=> this.handleDelete(e, customer.pk)} className="button is-link">Update</button>
-                                        <a href={'/customer/' + customer.pk} className="button is-danger">Delete</a></td>
+                                        <td><p className="buttons">
+                                            <button className="button is-small" onClick={(e)=> this.handleDelete(e, customer.pk)}>Delete</button>
+                                            <a href={'/customer/' + String(customer.pk)} className="button is-small">Update</a>
+                                            </p>
+                                        </td>
                                     </tr>
                             })}
                         </tbody>
 
                     </table>
-                    <button className="button is-primary" onClick={this.nextPage}>Next</button>
-                </section>
+                    <button className="button is-primary is-outlined" onClick={this.nextPage}>Next</button>
             </React.Fragment>
         )
     }
