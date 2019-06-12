@@ -20,7 +20,7 @@ def customers_list(request):
         pPage = 1
         customers = Customer.objects.all()
         page = request.GET.get('page',1)
-        paginator = Paginator(customers, 10)
+        paginator = Paginator(customers, 8)
 
         try: 
             data = paginator.page(page)
