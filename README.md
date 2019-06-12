@@ -29,7 +29,7 @@ npm start
 ![Customer List](https://github.com/danielc92/react-django-crm/blob/master/screenshots/customer-list.png)
 
 ### Paginating customers
-![Paginated customer list](https://github.com/danielc92/react-django-crm/blob/master/screenshots/customer-list-paginated.png)
+![Paginated customer list](https://github.com/danielc92/react-django-crm/blob/master/screenshots/customer-list-pagination.png)
 
 ### Updating customers
 ![Update customers](https://github.com/danielc92/react-django-crm/blob/master/screenshots/customer-update.png)
