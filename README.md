@@ -27,10 +27,11 @@ npm start
 - No screenshots at this point in time.
 
 # Tests
-- Successfully deleted a record via the front end (Delete button via http://localhost:3000/)
-- Successfully created a record (Customer) via the front end (http://localhost:3000/customer/)
-- Successfully rendering list of records via front end (http://localhost:3000/)
-- Unsuccessfully updated component via the front end (Update button via http://localhost:3000/customer/:pk)
+- Successfully deleted a record via the front end server (Delete button via http://localhost:3000/)
+- Successfully created a record (Customer) via the front end server (http://localhost:3000/customer/)
+- Successfully rendering list of records via front end server (http://localhost:3000/)
+- Successfully paginated results on front end server bidirectionally
+- Successfully updated a record via front end server (Update button via http://localhost:3000/customer/:pk)
 
 
 # Contributors
