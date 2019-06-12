@@ -11,8 +11,11 @@ export default class CustomersList extends Component {
         super(props);
         this.state = {
             customers : [],
-            nextPageURL : ''
+            nextPageURL : '',
+            previousPageURL: ''
         }
+
+        this.previousPage = this.previousPage.bind(this);
         this.nextPage = this.nextPage.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
     }
@@ -21,7 +24,11 @@ export default class CustomersList extends Component {
     componentDidMount() {
         var self = this;
         customersService.getCustomers().then(response => {
-            self.setState({customers: response.data, nextPageURL: response.nextLink})
+            console.log(response.data);
+            self.setState({
+                            customers: response.data, 
+                            previousPageURL:response.prevlink, 
+                            nextPageURL: response.nextlink})
         });
     }
 
@@ -40,8 +47,24 @@ export default class CustomersList extends Component {
     // Sets the state for the next page customer data, as well as the next Page url
     nextPage() {
         var self = this;
+
         customersService.getCustomersByURL(this.state.nextPageURL).then(response => {
-            self.setState({customers: response.data, nextPageURL: response.nextLink})
+            self.setState({customers: response.data, 
+                           nextPageURL: response.nextlink,
+                           previousPageURL: response.prevlink})
+        });    
+    }
+
+
+    previousPage() {
+        var self = this;
+        
+        customersService.getCustomersByURL(this.state.previousPageURL).then(response => {
+            self.setState({customers: response.data, 
+                           nextPageURL: response.nextlink,
+                           previousPageURL: response.prevlink})
+
+        console.log(this.state);
         });
     }
 
@@ -86,7 +109,10 @@ export default class CustomersList extends Component {
                         </tbody>
 
                     </table>
-                    <button className="button is-primary is-outlined" onClick={this.nextPage}>Next</button>
+                    <p className="buttons">
+                        <button className="button is-primary is-outlined" onClick={this.previousPage}>Previous</button>
+                        <button className="button is-primary is-outlined" onClick={this.nextPage}>Next</button>
+                    </p>  
             </React.Fragment>
         )
     }

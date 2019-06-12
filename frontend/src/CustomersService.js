@@ -8,8 +8,6 @@ const API_URL = 'http://localhost:8000';
 
 export default class CustomersService{
 
-    constructor(){}
-
 
     getCustomers() {
         const url = `${API_URL}/api/customers/`;
@@ -17,6 +15,7 @@ export default class CustomersService{
     }  
     getCustomersByURL(link){
         const url = `${API_URL}${link}`;
+        console.log(`Attempting to call getCustomersByURL ${url}`);
         return axios.get(url).then(response => response.data);
     }
     getCustomer(pk) {
