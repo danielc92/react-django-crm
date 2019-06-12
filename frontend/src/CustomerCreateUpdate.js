@@ -29,13 +29,33 @@ class CustomerCreateUpdate extends Component {
     }
 
 
+    handleUpdate(pk) {
+        customersService.updateCustomer({
+          "pk": pk,
+          "first_name": this.refs.firstName.value,
+          "last_name": this.refs.lastName.value,
+          "email": this.refs.email.value,
+          "phone": this.refs.phone.value,
+          "address": this.refs.address.value,
+          "description": this.refs.description.value
+        }
+        ).then( response => {
+          console.log(response);
+          alert(`Customer ${this.refs.firstName.value} has been updated.`);
+        }).catch( error => {
+          alert(`There was an error, please check your form.`);        })
+    }
+
+
     handleSubmit(event) {
         const { match: { params } } =  this.props;
         if(params  &&  params.pk){
+            console.log('Executing handleUpdate...');
             this.handleUpdate(params.pk);
         }
         else
         {
+            console.log('Executing handleCreate...');
             this.handleCreate();
         }
         event.preventDefault();
