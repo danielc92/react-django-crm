@@ -24,7 +24,18 @@ npm start
 ```
 
 # Screenshots
-- No screenshots at this point in time.
+
+### Listing customers
+[Customer List](https://github.com/danielc92/react-django-crm/blob/master/screenshots/customer-list.png)
+
+### Paginating customers
+[Paginated customer list](https://github.com/danielc92/react-django-crm/blob/master/screenshots/customer-list-paginated.png)
+
+### Updating customers
+[Update customers](https://github.com/danielc92/react-django-crm/blob/master/screenshots/customer-update.png)
+
+### Creating customers
+[Creating customers](https://github.com/danielc92/react-django-crm/blob/master/screenshots/customer-create.png)
 
 # Tests
 - Successfully deleted a record via the front end server (Delete button via http://localhost:3000/)
